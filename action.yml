@@ -1,4 +1,4 @@
-name: 'Verja'
+name: 'Verja CVE scanner'
 description: 'Configurable CVE alerts to Jira and or to Slack'
 branding:
   icon: 'shield'
