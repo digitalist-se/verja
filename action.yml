@@ -1,0 +1,8 @@
+name: 'Verja'
+description: 'Configurable CVE alerts to Jira and or to Slack'
+branding:
+  icon: 'shield'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

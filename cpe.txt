@@ -1,9 +1,6 @@
-kubernetes:kubernetes
-apache
 apache:http_server
 mariadb:mariadb
-nginx
+nginx:nginx
 varnish-cache:varnish
-php:php
+php:php:7
 oracle:mysql
-drupal:drupal
