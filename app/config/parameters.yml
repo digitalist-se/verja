@@ -1,0 +1,10 @@
+database_host:     localhost
+database_name:     test_project
+database_user:     root
+database_password: password
+secret: 4a7e091c4eb29281d56cb41172b06e59b9edaf9a
+mailer_transport: smtp
+mailer_host: mailhog.wkstage.se
+mailer_user: null
+mailer_password: null
+mailer_port: 1025

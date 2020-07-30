@@ -1,0 +1,26 @@
+services:
+
+    _defaults:
+      autowire: true
+      autoconfigure: true
+
+    symfony.application:
+      class: Symfony\Component\Console\Application
+      arguments:
+        - 'Verja'
+        - '0.0.1'
+    symfony.console_output:
+      class: Symfony\Component\Console\Output\ConsoleOutput
+
+    Verja.command.about:
+        class: Verja\Command\AboutCommand
+        arguments: ['@GuardContainer']
+        lazy: true
+        tags:
+          - {name: console.command}
+    Verja.command.getCVE:
+      class: Verja\Command\GetCVECommand
+      arguments: ['@GuardContainer']
+      lazy: true
+      tags:
+        - {name: console.command}

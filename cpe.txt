@@ -1,0 +1,9 @@
+kubernetes:kubernetes
+apache
+apache:http_server
+mariadb:mariadb
+nginx
+varnish-cache:varnish
+php:php
+oracle:mysql
+drupal:drupal

@@ -1,0 +1,22 @@
+---
+# config for verja
+slack:
+  enabled: false
+  endpoint: https://hooks.slack.com/services/MYHOOK
+  channel: '#verja'
+  emoji: ':broken_heart:'
+  username: Verja
+jira:
+  enabled: false
+  url: https://jira.example.com/
+  user: my_username
+  secret: my_secret_password_or_token
+  project_key: VERJA
+  issue_type: Task
+  description_field: Description
+  tag_field: Labels
+  summary_prefix: Security
+  tags: 
+    - security
+    - verja
+
