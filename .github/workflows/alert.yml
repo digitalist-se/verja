@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@master
     - uses: digitalist-se/verja@master
       env:
-        ENV CONFIG:config.yml
-        ENV CPE:cpe.txt
+        CONFIG: config.yml
+        CPE: cpe.txt
     - name: done
       run: echo 'done'
