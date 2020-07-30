@@ -68,7 +68,7 @@ class GetCVECommand extends Command
                         null,
                         InputOption::VALUE_OPTIONAL,
                         'Path to text file that contains what to watch for.',
-                        './cpe.txt'
+                        'cpe.txt'
                     ),
                     new InputOption(
                         'config-file',
@@ -100,10 +100,6 @@ class GetCVECommand extends Command
         $config_file = $input->getOption('config-file');
         //$running_path = getcwd();
         $config = Yaml::parseFile("$config_file");
-
-        var_dump($config);
-        var_dump($stack);
-        exit;
 
 
         if ($search === null) {

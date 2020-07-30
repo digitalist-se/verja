@@ -2,3 +2,4 @@ vendor
 .idea
 var
 config-secret.yml
+build.sh
