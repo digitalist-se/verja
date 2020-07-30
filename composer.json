@@ -1,0 +1,26 @@
+{
+    "require": {
+        "symfony/console": "^3.3",
+        "symfony/process": "^4",
+        "symfony/config": "^3.3",
+        "symfony/dependency-injection": "^3.3",
+        "symfony/event-dispatcher": "^3.3",
+        "symfony/yaml": "^4.2",
+        "symfony/proxy-manager-bridge": "^3.3",
+        "guzzlehttp/guzzle": "^6.5",
+        "lygav/php-slackbot": "^0.0.4",
+        "ext-zip": "*",
+        "ext-json": "*",
+        "badoo/jira-client": "^1.1"
+    },
+    "bin": [
+        "app/verja"
+    ],
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "require-dev": {
+    }
+}

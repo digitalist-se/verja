@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+// set to run indefinitely if needed
+set_time_limit(0);
+date_default_timezone_set('Europe/Stockholm');
+// Ensure that errors are only reported once.
+ini_set('display_errors', 1);
+ini_set('log_errors', 0);
+// Include the composer autoloader
+define('CLI_ROOT', __DIR__);
+if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    require __DIR__ . '/../vendor/autoload.php';
+}
+
+if (file_exists(CLI_ROOT . '/vendor/autoload.php')) {
+    require CLI_ROOT . '/vendor/autoload.php';
+} elseif (file_exists(CLI_ROOT . '/../../../autoload.php')) {
+    // we are globally installed via Composer
+    require CLI_ROOT . '/../../../autoload.php';
+}
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Bridge\ProxyManager\LazyProxy\Instantiator\RuntimeInstantiator;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\FileLocator;
+
+$container = new ContainerBuilder();
+$container->set('GuardContainer', $container);
+$container->setProxyInstantiator(new RuntimeInstantiator());
+$loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/config'));
+$loader->load('services.yml');
+
+$output = $container->get('symfony.console_output');
+/** @var \Symfony\Component\Console\Application $application */
+$application = $container->get('symfony.application');
+// Get commands.
+$commands = $container->findTaggedServiceIds('console.command');
+$commandsToInit = array();
+foreach ($commands as $id => $tags) {
+    $commandsToInit[] = $container->get($id);
+}
+// Add them to the application.
+$application->addCommands($commandsToInit);
+
+// run application.
+$application->run(null, $output);
