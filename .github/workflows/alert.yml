@@ -2,8 +2,7 @@ name: Verja
 
 on: 
   schedule:
-    - cron:  '*/5 * * * *'
-
+    - cron:  '0 0 16 03 *'
 jobs:
   alert:
     runs-on: ubuntu-latest
